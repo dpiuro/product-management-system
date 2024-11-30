@@ -42,7 +42,11 @@ def get_all_products(db: Session = Depends(get_db)):
 
 
 @router.put("/products/{product_id}", response_model=ProductResponse)
-def update_product(product_id: int, product_data: ProductCreate, db: Session = Depends(get_db)):
+def update_product(
+        product_id: int,
+        product_data: ProductCreate,
+        db: Session = Depends(get_db)
+):
     product = db.query(Product).filter(Product.id == product_id).first()
     if not product:
         raise HTTPException(status_code=404, detail="Product not found")
