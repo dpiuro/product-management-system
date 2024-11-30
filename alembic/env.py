@@ -3,8 +3,9 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
+from app.config.database import Base
 from alembic import context
-from app.config.database import Base  # Імпортуємо Base
+ # Імпортуємо Base
 
 # Встановлюємо target_metadata як Base.metadata
 target_metadata = Base.metadata
